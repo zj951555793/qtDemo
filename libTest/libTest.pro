@@ -22,6 +22,8 @@ SOURCES += \
 HEADERS += \
     libTest_global.h \
     libtest.h
+DESTDIR = C:\Innover
+TARGET = $$qtLibraryTarget($$TARGET)
 
 # Default rules for deployment.
 unix {

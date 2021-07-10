@@ -1,11 +1,23 @@
 #include "genericplugin.h"
+#include <QString>
 
 GenericPlugin::GenericPlugin(QObject *parent)
-    : QGenericPlugin(parent)
 {
+    Q_UNUSED(parent)
 }
 
-QObject *GenericPlugin::create(const QString &name, const QString &spec)
+QStringList GenericPlugin::CalculateType() const
 {
-    static_assert(false, "You need to implement this function");
+    return QStringList()<< tr("Add")<<tr("Sub");
 }
+
+double GenericPlugin::Calculate(QString &type, double xvar, double yvar)
+{
+
+    if(type == tr("Add"))
+        return xvar + yvar;
+    else if(type == tr("Sub"))
+        return xvar - yvar;
+    else return 0.0;
+}
+
